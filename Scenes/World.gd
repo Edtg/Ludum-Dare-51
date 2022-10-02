@@ -29,6 +29,7 @@ func _on_FadeScreen_FadedOut():
 
 func _on_Timer_timeout():
 	$CanvasLayer/FadeScreen.FadeOut()
+	$Timer/ElectricitySound.play()
 
 
 func ChangeLevel(levelScene):

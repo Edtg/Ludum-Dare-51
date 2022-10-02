@@ -14,6 +14,7 @@ func _ready():
 #	pass
 
 func press():
+	$AudioStreamPlayer2D.play()
 	if $Timer.time_left == 0:
 		$Sprite.frame = 1
 		$Timer.start()

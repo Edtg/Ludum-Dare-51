@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Resources/TileSets/MainTS.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Characters/Enemy.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Objects/LevelEnd.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Levels/Level2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/ambient_hum.wav" type="AudioStream" id=8]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 304, 16, 304, 168, 264, 168, 264, 96, 16, 16, 72, 96, 16, 168, 72, 168 )
@@ -101,3 +102,8 @@ nextLevelScene = ExtResource( 7 )
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 22, 20 )
 z_index = 1
+
+[node name="AmbientSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -16.0
+autoplay = true

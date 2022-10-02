@@ -27,3 +27,8 @@ func CloseDoor():
 	if not $AnimationPlayer.is_playing():
 		$AnimationPlayer.play("DoorClose")
 		get_node(navigationPolygon).enabled = false
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "DoorClose":
+		$AudioStreamPlayer2D.play()

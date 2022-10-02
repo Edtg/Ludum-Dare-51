@@ -16,8 +16,10 @@ func _ready():
 
 func _on_PlayButton_pressed():
 	get_node(world).ChangeLevel(get_node(world).firstLevel)
+	$AudioStreamPlayer.play()
 	visible = false
 
 
 func _on_QuitButton_pressed():
+	$AudioStreamPlayer.play()
 	get_tree().quit()
