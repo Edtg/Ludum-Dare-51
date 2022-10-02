@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-export(float) var speed = 1
+export(float) var speed = 0.5
+export(float) var sprintSpeed = 0.8
 var canMove = true
 
 # Called when the node enters the scene tree for the first time.
@@ -9,6 +10,7 @@ func _ready():
 
 func _physics_process(delta):
 	var velocity = Vector2(0,0)
+	var moveSpeed = speed
 	
 	if Input.is_action_pressed("MoveUp"):
 		velocity.y -= 1
@@ -27,11 +29,17 @@ func _physics_process(delta):
 		$Sprite.flip_v = false
 		$Sprite.rotation_degrees = 90
 	
+	if Input.is_action_pressed("Sprint"):
+		moveSpeed = sprintSpeed
+		$Sprite.speed_scale = 1.5
+	else:
+		$Sprite.speed_scale = 1
+	
 	if canMove:
 		if velocity != Vector2(0,0):
 			$Sprite.playing = true
 		else:
 			$Sprite.playing = false
 			$Sprite.frame = 0
-		move_and_collide(velocity * speed)
+		move_and_collide(velocity * moveSpeed)
 
