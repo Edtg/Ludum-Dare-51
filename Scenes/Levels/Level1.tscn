@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Resources/TileSets/MainTS.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Characters/Enemy.tscn" type="PackedScene" id=2]
@@ -24,20 +24,10 @@ vertices = PoolVector2Array( 240, 120, 240, 168, 168, 168, 168, 120 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( 168, 120, 168, 168, 240, 168, 240, 120 ) ]
 
-[sub_resource type="NavigationPolygon" id=4]
-vertices = PoolVector2Array( 240, 128, 264, 128, 264, 136, 240, 136 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-outlines = [ PoolVector2Array( 240, 128, 264, 128, 264, 136, 240, 136 ) ]
-
 [sub_resource type="NavigationPolygon" id=5]
 vertices = PoolVector2Array( 144, 152, 168, 152, 168, 160, 144, 160 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( 144, 152, 168, 152, 168, 160, 144, 160 ) ]
-
-[sub_resource type="NavigationPolygon" id=6]
-vertices = PoolVector2Array( 72, 136, 96, 136, 96, 144, 72, 144 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-outlines = [ PoolVector2Array( 72, 136, 96, 136, 96, 144, 72, 144 ) ]
 
 [node name="Level1" type="Node2D"]
 
@@ -58,43 +48,41 @@ navpoly = SubResource( 2 )
 [node name="NavigationPolygonInstance3" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 3 )
 
-[node name="NavigationPolygonInstance4" type="NavigationPolygonInstance" parent="Navigation2D"]
-navpoly = SubResource( 4 )
-
-[node name="SlidingDoor2" parent="Navigation2D/NavigationPolygonInstance4" instance=ExtResource( 4 )]
-position = Vector2( 252, 132 )
-rotation = 1.5708
-navigationPolygon = NodePath("..")
-
 [node name="NavigationPolygonInstance5" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 5 )
 
-[node name="SlidingDoor" parent="Navigation2D" instance=ExtResource( 4 )]
-position = Vector2( 84, 140 )
-rotation = 1.5708
-navigationPolygon = NodePath("NavigationPolygonInstance6")
+[node name="NavigationPolygonInstance6" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( -72, -16 )
+navpoly = SubResource( 5 )
 
-[node name="NavigationPolygonInstance6" type="NavigationPolygonInstance" parent="Navigation2D/SlidingDoor"]
-position = Vector2( -140, 84 )
-rotation = -1.5708
-navpoly = SubResource( 6 )
+[node name="SlidingDoor" parent="Navigation2D/NavigationPolygonInstance6" instance=ExtResource( 4 )]
+position = Vector2( 156, 156 )
+rotation = 1.5708
+
+[node name="NavigationPolygonInstance7" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 96, -24 )
+navpoly = SubResource( 5 )
+
+[node name="SlidingDoor2" parent="Navigation2D/NavigationPolygonInstance7" instance=ExtResource( 4 )]
+position = Vector2( 156, 156 )
+rotation = 1.5708
 
 [node name="Enemy" parent="Navigation2D" instance=ExtResource( 2 )]
 position = Vector2( 64, 64 )
 
 [node name="Button" parent="." instance=ExtResource( 3 )]
 position = Vector2( 192, 12 )
-connectedDoor = NodePath("../Navigation2D/SlidingDoor")
+connectedDoor = NodePath("../Navigation2D/NavigationPolygonInstance6/SlidingDoor")
 
 [node name="Button2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 260, 152 )
 rotation = -1.5708
-connectedDoor = NodePath("../Navigation2D/NavigationPolygonInstance4/SlidingDoor2")
+connectedDoor = NodePath("../Navigation2D/NavigationPolygonInstance7/SlidingDoor2")
 
 [node name="Button3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 244, 152 )
 rotation = 1.5708
-connectedDoor = NodePath("../Navigation2D/NavigationPolygonInstance4/SlidingDoor2")
+connectedDoor = NodePath("../Navigation2D/NavigationPolygonInstance7/SlidingDoor2")
 
 [node name="LevelEnd" parent="." instance=ExtResource( 5 )]
 position = Vector2( 112, 208 )
