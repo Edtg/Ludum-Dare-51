@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Resources/TileSets/MainTS.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Characters/Enemy.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Levels/Level2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sounds/ambient_hum.wav" type="AudioStream" id=8]
 [ext_resource path="res://Resources/TileSets/WireTS.tres" type="TileSet" id=9]
+[ext_resource path="res://Resources/TileSets/ObjectTS.tres" type="TileSet" id=10]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 308, 12, 308, 172, 260, 172, 260, 100, 12, 12, 76, 100, 12, 172, 76, 172 )
@@ -49,6 +50,13 @@ tile_set = ExtResource( 9 )
 cell_size = Vector2( 8, 8 )
 format = 1
 tile_data = PoolIntArray( 65559, 0, 0, 131095, 0, 65536, 196631, 0, 65536, 262166, 0, 1, 262167, 0, 131075, 327702, 0, 65536, 393230, 0, 1, 393231, 0, 196610, 393232, 0, 196610, 393233, 0, 196610, 393234, 0, 196610, 393235, 0, 196610, 393236, 0, 196610, 393237, 0, 196610, 393238, 0, 131075, 458766, 0, 65536, 524302, 0, 65536, 589838, 0, 65536, 655374, 0, 131073, 655375, 0, 3, 720911, 0, 65536, 786447, 0, 65536, 851983, 0, 65536, 917519, 0, 65536, 983055, 0, 65536, 1048591, 0, 131073, 1048592, 0, 3, 1114128, 0, 131073, 1114129, 0, 196610, 1114130, 0, 196611, 1114142, 0, 1, 1114143, 0, 196610, 1114144, 0, 3, 1179678, 0, 131072, 1179680, 0, 131072 )
+
+[node name="Objects" type="TileMap" parent="."]
+z_index = 3
+tile_set = ExtResource( 10 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 65541, 7, 0, 65542, 7, 0, 65544, 0, 0, 65560, 6, 0, 589843, 6, 0, 917515, 6, 0, 917516, 2, 0, 917521, 6, 0, 917522, 6, 0, 917526, 0, 0, 917529, 5, 0, 917532, 7, 0, 983063, 4, 0, 983065, 3, 0, 1376258, 2, 0, 1376260, 6, 0, 1376261, 6, 0, 1376262, 6, 0, 1376263, 2, 0 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
