@@ -16,6 +16,10 @@ func _ready():
 func UpdatePosition():
 	agent.set_target_location(player.global_position)
 	agent.get_next_location()
+	
+	if not agent.is_target_reachable():
+		return
+	
 	var points = agent.get_nav_path()
 	var pointIndex = 0
 	
