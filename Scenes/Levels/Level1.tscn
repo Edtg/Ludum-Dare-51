@@ -69,20 +69,22 @@ navigationPolygon = NodePath("..")
 [node name="NavigationPolygonInstance5" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 5 )
 
-[node name="NavigationPolygonInstance6" type="NavigationPolygonInstance" parent="Navigation2D"]
-navpoly = SubResource( 6 )
-
-[node name="SlidingDoor" parent="Navigation2D/NavigationPolygonInstance6" instance=ExtResource( 4 )]
+[node name="SlidingDoor" parent="Navigation2D" instance=ExtResource( 4 )]
 position = Vector2( 84, 140 )
 rotation = 1.5708
-navigationPolygon = NodePath("..")
+navigationPolygon = NodePath("NavigationPolygonInstance6")
+
+[node name="NavigationPolygonInstance6" type="NavigationPolygonInstance" parent="Navigation2D/SlidingDoor"]
+position = Vector2( -140, 84 )
+rotation = -1.5708
+navpoly = SubResource( 6 )
 
 [node name="Enemy" parent="Navigation2D" instance=ExtResource( 2 )]
 position = Vector2( 64, 64 )
 
 [node name="Button" parent="." instance=ExtResource( 3 )]
 position = Vector2( 192, 12 )
-connectedDoor = NodePath("../Navigation2D/NavigationPolygonInstance6/SlidingDoor")
+connectedDoor = NodePath("../Navigation2D/SlidingDoor")
 
 [node name="Button2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 260, 152 )
@@ -107,3 +109,4 @@ z_index = 1
 stream = ExtResource( 8 )
 volume_db = -16.0
 autoplay = true
+bus = "Ambient"
