@@ -6,7 +6,8 @@ export(NodePath) var navigationPolygon
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node(navigationPolygon).enabled = isOpen
+	if is_instance_valid(get_node(navigationPolygon)):
+		get_node(navigationPolygon).enabled = isOpen
 
 
 func ToggleOpen():

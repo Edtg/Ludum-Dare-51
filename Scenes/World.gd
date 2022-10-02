@@ -1,13 +1,12 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var currentLevel
+export(PackedScene) var firstLevel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	ChangeLevel(firstLevel)
 	$Timer.start()
 
 
@@ -30,3 +29,19 @@ func _on_FadeScreen_FadedOut():
 
 func _on_Timer_timeout():
 	$CanvasLayer/FadeScreen.FadeOut()
+
+
+func ChangeLevel(levelScene):
+	$Timer.set_paused(true)
+	if is_instance_valid(currentLevel):
+		currentLevel.queue_free()
+	currentLevel = levelScene.instance()
+	add_child(currentLevel)
+	var levelEnds = get_tree().get_nodes_in_group("level_ends")
+	for levelEnd in levelEnds:
+		levelEnd.connect("level_end", self, "ChangeLevel")
+	
+	$Timer.set_paused(false)
+	$Timer.start()
+
+

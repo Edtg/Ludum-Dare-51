@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 export var pathToPlayer = NodePath()
-export var maxDistanceTravel = 50
+export var maxDistanceTravel = 80
 
 onready var player = get_tree().get_nodes_in_group("players")[0]
 onready var agent = $NavigationAgent2D
@@ -14,6 +14,9 @@ func _ready():
 
 
 func UpdatePosition():
+	if not is_instance_valid(player):
+		player = get_tree().get_nodes_in_group("players")[0]
+	
 	agent.set_target_location(player.global_position)
 	agent.get_next_location()
 	

@@ -1,8 +1,9 @@
 extends Node2D
 
 
-signal level_end
+signal level_end(nextLevel)
 
+export(PackedScene) var nextLevelScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,5 +17,5 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("players"):
-		print("levelEnd")
 		body.canMove = false
+		emit_signal("level_end", nextLevelScene)
