@@ -21,8 +21,12 @@ func _on_FadeScreen_FadedIn():
 
 
 func _on_FadeScreen_FadedOut():
-	$FadeScreen.FadeIn()
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		enemy.UpdatePosition()
+		
+	$CanvasLayer/FadeScreen.FadeIn()
 
 
 func _on_Timer_timeout():
-	$FadeScreen.FadeOut()
+	$CanvasLayer/FadeScreen.FadeOut()

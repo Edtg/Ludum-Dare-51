@@ -30,7 +30,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 2.5 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["players"]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]

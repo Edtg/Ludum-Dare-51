@@ -20,7 +20,9 @@ one_shot = true
 [node name="Player" parent="World" instance=ExtResource( 1 )]
 position = Vector2( 18, 21 )
 
-[node name="FadeScreen" parent="World" instance=ExtResource( 2 )]
+[node name="CanvasLayer" type="CanvasLayer" parent="World"]
+
+[node name="FadeScreen" parent="World/CanvasLayer" instance=ExtResource( 2 )]
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
 
@@ -51,5 +53,5 @@ text = "Quit"
 stream = ExtResource( 4 )
 
 [connection signal="timeout" from="World/Timer" to="World" method="_on_Timer_timeout"]
-[connection signal="FadedIn" from="World/FadeScreen" to="World" method="_on_FadeScreen_FadedIn"]
-[connection signal="FadedOut" from="World/FadeScreen" to="World" method="_on_FadeScreen_FadedOut"]
+[connection signal="FadedIn" from="World/CanvasLayer/FadeScreen" to="World" method="_on_FadeScreen_FadedIn"]
+[connection signal="FadedOut" from="World/CanvasLayer/FadeScreen" to="World" method="_on_FadeScreen_FadedOut"]
