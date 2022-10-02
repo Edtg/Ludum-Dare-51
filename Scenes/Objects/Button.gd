@@ -1,9 +1,7 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export(NodePath) var connectedDoor
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +17,8 @@ func press():
 	if $Timer.time_left == 0:
 		$Sprite.frame = 1
 		$Timer.start()
+		if is_instance_valid(get_node(connectedDoor)):
+			get_node(connectedDoor).ToggleOpen()
 
 
 func _on_Timer_timeout():
