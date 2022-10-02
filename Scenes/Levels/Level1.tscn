@@ -76,7 +76,7 @@ position = Vector2( 156, 156 )
 rotation = 1.5708
 
 [node name="Button" parent="Navigation2D/NavigationPolygonInstance6/SlidingDoor" instance=ExtResource( 3 )]
-position = Vector2( -128, -108 )
+position = Vector2( -128, -104 )
 rotation = -1.5708
 connectedDoors = [ NodePath("..") ]
 
