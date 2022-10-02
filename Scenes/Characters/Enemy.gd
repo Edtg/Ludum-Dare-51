@@ -8,6 +8,8 @@ onready var player = get_tree().get_nodes_in_group("players")[0]
 onready var agent = $NavigationAgent2D
 onready var startPos = global_position
 
+var hasDetectedPlayer = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -23,7 +25,7 @@ func UpdatePosition():
 	agent.set_target_location(player.global_position)
 	agent.get_next_location()
 	
-	if not agent.is_target_reachable():
+	if not agent.is_target_reachable() or not hasDetectedPlayer:
 		return
 	
 	var points = agent.get_nav_path()
@@ -50,3 +52,9 @@ func UpdatePosition():
 func _on_DeathBox_body_entered(body):
 	if body.is_in_group("players"):
 		body.Die()
+
+
+func _on_DetectionArea_body_entered(body):
+	agent.set_target_location(player.global_position)
+	if body.is_in_group("players") and agent.is_target_reachable():
+		hasDetectedPlayer = true
