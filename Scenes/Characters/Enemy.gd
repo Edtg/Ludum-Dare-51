@@ -42,3 +42,9 @@ func UpdatePosition():
 			currentPosition += direction * (maxDistanceTravel - distanceTravelled)
 			distanceTravelled = maxDistanceTravel
 		global_position = currentPosition
+
+
+func _on_DeathBox_body_entered(body):
+	if body.is_in_group("players"):
+		print("Player Die")
+		body.Die()
