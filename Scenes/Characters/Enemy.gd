@@ -6,12 +6,15 @@ export var maxDistanceTravel = 80
 
 onready var player = get_tree().get_nodes_in_group("players")[0]
 onready var agent = $NavigationAgent2D
-
+onready var startPos = global_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
+
+func Reset():
+	global_position = startPos
 
 func UpdatePosition():
 	if not is_instance_valid(player):
@@ -46,5 +49,4 @@ func UpdatePosition():
 
 func _on_DeathBox_body_entered(body):
 	if body.is_in_group("players"):
-		print("Player Die")
 		body.Die()

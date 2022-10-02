@@ -90,7 +90,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[node name="SlidingDoor" type="Node2D"]
+[node name="SlidingDoor" type="Node2D" groups=["doors"]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

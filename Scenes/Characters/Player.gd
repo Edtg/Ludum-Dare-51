@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-signal death
 
 export(float) var speed = 0.5
 export(float) var sprintSpeed = 0.8
@@ -9,9 +8,17 @@ var isDead = false
 
 var interactionObject
 
+onready var startPos = global_position
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+
+func Reset():
+	global_position = startPos
+	canMove = true
+	isDead = false
+	$Sprite.frame = 0
 
 func _physics_process(delta):
 	if isDead:
@@ -74,4 +81,4 @@ func Die():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Death":
-		emit_signal("death")
+		get_tree().call_group("world", "ResetLevel")

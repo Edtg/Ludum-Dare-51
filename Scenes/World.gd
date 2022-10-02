@@ -1,7 +1,6 @@
 extends Node2D
 
 
-var currentLevelScene
 var currentLevel
 export(PackedScene) var firstLevel
 
@@ -36,17 +35,26 @@ func ChangeLevel(levelScene):
 	$Timer.set_paused(true)
 	if is_instance_valid(currentLevel):
 		currentLevel.queue_free()
-	currentLevelScene = levelScene
 	currentLevel = levelScene.instance()
-	add_child(currentLevel)
-	var levelEnds = get_tree().get_nodes_in_group("level_ends")
-	for levelEnd in levelEnds:
-		levelEnd.connect("level_end", self, "ChangeLevel")
-	var player = get_tree().get_nodes_in_group("players")[0]
-	player.connect("death", self, "PlayerDeath")
+	#add_child(currentLevel)
+	call_deferred("add_child", currentLevel)
 	
 	$Timer.set_paused(false)
 	$Timer.start()
 
-func PlayerDeath():
-	ChangeLevel(currentLevelScene)
+func ResetLevel():
+	print("Resetting")
+	var player = get_tree().get_nodes_in_group("players")[0]
+	player.Reset()
+	
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		enemy.Reset()
+	
+	for door in get_tree().get_nodes_in_group("doors"):
+		door.Reset()
+	
+	$Timer.start()
+
+
+func _on_Player_death():
+	ResetLevel()

@@ -10,7 +10,7 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="Node2D" parent="." groups=["world"]]
 script = ExtResource( 6 )
 firstLevel = ExtResource( 5 )
 
