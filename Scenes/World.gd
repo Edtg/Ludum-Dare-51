@@ -16,15 +16,13 @@ func _ready():
 #	pass
 
 
-func _on_Timer_timeout():
-	$FadeScreen.FadeOut()
-	
+func _on_FadeScreen_FadedIn():
+	$Timer.start()
 
 
 func _on_FadeScreen_FadedOut():
 	$FadeScreen.FadeIn()
 
 
-func _on_FadeScreen_FadedIn():
-	$Timer.start()
-
+func _on_Timer_timeout():
+	$FadeScreen.FadeOut()
