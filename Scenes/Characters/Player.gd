@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export(int) var speed = 1
+export(float) var speed = 1
 var canMove = true
 
 # Called when the node enters the scene tree for the first time.
