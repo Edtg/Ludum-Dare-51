@@ -55,6 +55,5 @@ func _on_DeathBox_body_entered(body):
 
 
 func _on_DetectionArea_body_entered(body):
-	agent.set_target_location(player.global_position)
-	if body.is_in_group("players") and agent.is_target_reachable():
+	if body.is_in_group("players"):
 		hasDetectedPlayer = true
