@@ -13,6 +13,8 @@ func _ready():
 
 func Reset():
 	isOpen = false
+	if functional:
+		navigationPoly.enabled = isOpen
 	$Sprite.frame = 0
 
 func ToggleOpen():

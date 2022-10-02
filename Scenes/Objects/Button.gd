@@ -1,7 +1,7 @@
 extends Node2D
 
 
-export(NodePath) var connectedDoor
+export(Array, NodePath) var connectedDoors
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,8 +18,9 @@ func press():
 	if $Timer.time_left == 0:
 		$Sprite.frame = 1
 		$Timer.start()
-		if is_instance_valid(get_node(connectedDoor)):
-			get_node(connectedDoor).ToggleOpen()
+		for door in connectedDoors:
+			if is_instance_valid(get_node(door)):
+				get_node(door).ToggleOpen()
 
 
 func _on_Timer_timeout():

@@ -8,6 +8,7 @@
 extents = Vector2( 4, 3 )
 
 [node name="Button" type="Node2D" groups=["interactables"]]
+z_index = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
