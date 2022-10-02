@@ -4,6 +4,8 @@ export(float) var speed = 0.5
 export(float) var sprintSpeed = 0.8
 var canMove = true
 
+var interactionObject
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -42,4 +44,20 @@ func _physics_process(delta):
 			$Sprite.playing = false
 			$Sprite.frame = 0
 		move_and_collide(velocity * moveSpeed)
+	
+	
+	if Input.is_action_just_pressed("Interact") and is_instance_valid(interactionObject):
+		interactionObject.press()
 
+
+
+func _on_InteractionArea_area_entered(area):
+	var object = area.get_parent()
+	if object.is_in_group("interactables"):
+		interactionObject = object
+
+
+func _on_InteractionArea_area_exited(area):
+	var object = area.get_parent()
+	if interactionObject == object:
+		interactionObject = null

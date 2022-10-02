@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Resources/TileSets/MainTS.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Characters/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Objects/Button.tscn" type="PackedScene" id=3]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 304, 16, 304, 168, 264, 168, 264, 96, 16, 16, 72, 96, 16, 168, 72, 168 )
@@ -63,3 +64,6 @@ navpoly = SubResource( 6 )
 
 [node name="Enemy" parent="Navigation2D" instance=ExtResource( 2 )]
 position = Vector2( 64, 64 )
+
+[node name="Button" parent="." instance=ExtResource( 3 )]
+position = Vector2( 192, 12 )
