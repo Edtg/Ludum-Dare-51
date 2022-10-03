@@ -11,7 +11,7 @@ func _ready():
 
 
 func Interact():
-	if get_node(stabilisers).enabledCount < 0:
+	if get_node(stabilisers).enabledCount < 2:
 		$AnimationPlayer.play("GameFailed")
 	else:
 		$AnimationPlayer.play("GameCompleted")
@@ -21,6 +21,7 @@ func Interact():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "GameCompleted":
 		get_tree().paused = false
+		get_tree().call_group("world", "CompleteGame")
 		get_tree().call_group("world", "LoadMainMenu")
 	elif anim_name == "GameFailed":
 		$Player.Die()

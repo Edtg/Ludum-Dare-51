@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Resources/TileSets/MainTS.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/TileSets/WireTS.tres" type="TileSet" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scenes/Objects/SlidingDoorSmall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/Scientist.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Enemy-Sheet.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Objects/Button.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Objects/ColourComboButton.tscn" type="PackedScene" id=8]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -46,6 +48,13 @@ position = Vector2( 132, 32 )
 rotation = 1.5708
 functional = false
 
+[node name="Button" parent="." instance=ExtResource( 7 )]
+position = Vector2( 28, 12 )
+
+[node name="Button2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 124, 60 )
+rotation = 1.5708
+
 [node name="ScientistDummy1" type="Sprite" parent="."]
 position = Vector2( 44, 20 )
 texture = ExtResource( 5 )
@@ -64,3 +73,7 @@ position = Vector2( 160, 32 )
 rotation = 1.5708
 texture = ExtResource( 6 )
 hframes = 4
+
+[node name="ColourComboButton" parent="." instance=ExtResource( 8 )]
+position = Vector2( 60, 100 )
+rotation = 3.14159

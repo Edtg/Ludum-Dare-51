@@ -62,3 +62,7 @@ func ResetLevel():
 
 func _on_Player_death():
 	ResetLevel()
+
+
+func CompleteGame():
+	get_node(mainMenu).get_node("GameCompletedMessage").visible = true

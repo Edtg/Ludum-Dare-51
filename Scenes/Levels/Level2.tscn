@@ -126,6 +126,7 @@ rotation = 1.5708
 position = Vector2( -8, 12 )
 rotation = -1.5708
 connectedDoors = [ NodePath("..") ]
+oneShot = true
 
 [node name="NavigationPolygonInstance3" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 3 )
@@ -170,6 +171,7 @@ rotation = 1.5708
 [node name="Button" parent="Navigation2D/NavigationPolygonInstance9/SlidingDoor3" instance=ExtResource( 3 )]
 position = Vector2( -24, 8 )
 connectedDoors = [ NodePath("..") ]
+oneShot = true
 
 [node name="NavigationPolygonInstance10" type="NavigationPolygonInstance" parent="Navigation2D"]
 position = Vector2( 32, 0 )

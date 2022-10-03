@@ -15,7 +15,7 @@
 [ext_resource path="res://Resources/Themes/MainTheme.tres" type="Theme" id=15]
 
 [sub_resource type="DynamicFont" id=1]
-size = 24
+size = 32
 font_data = ExtResource( 9 )
 
 [node name="Main" type="Node2D"]
@@ -44,9 +44,9 @@ script = ExtResource( 1 )
 world = NodePath("../World")
 
 [node name="Label" type="Label" parent="MainMenu"]
-margin_top = 576.0
+margin_top = 560.0
 margin_right = 512.0
-margin_bottom = 609.0
+margin_bottom = 604.0
 custom_fonts/font = SubResource( 1 )
 text = "LD51 Game"
 align = 1
@@ -100,6 +100,15 @@ Click the coloured squared on colour puzle to select or use controller buttons:
 -B/Circle: Red
 
 Controllers do not work with menus"
+
+[node name="GameCompletedMessage" type="Control" parent="MainMenu"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Message" type="Label" parent="MainMenu/GameCompletedMessage"]
+margin_right = 40.0
+margin_bottom = 14.0
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 pause_mode = 2
