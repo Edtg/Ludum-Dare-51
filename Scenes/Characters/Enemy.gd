@@ -17,6 +17,7 @@ func _ready():
 
 func Reset():
 	global_position = startPos
+	hasDetectedPlayer = false
 
 func UpdatePosition():
 	if not is_instance_valid(player):
