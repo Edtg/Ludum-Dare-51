@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Resources/TileSets/WireTS.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/TileSets/ObjectTS.tres" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Objects/ColourComboButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sounds/ambient_hum.wav" type="AudioStream" id=10]
+[ext_resource path="res://Scenes/Characters/Enemy.tscn" type="PackedScene" id=11]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 20, 140, 20, 4, 60, 4, 308, 140, 60, -76, 68, -76, 68, 4, 308, 4 )
@@ -46,10 +47,20 @@ vertices = PoolVector2Array( 252, -12, 236, -12, 236, -100, 252, -100, 204, -100
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 2, 4, 5, 6 ), PoolIntArray( 3, 2, 6 ), PoolIntArray( 3, 6, 7 ) ]
 outlines = [ PoolVector2Array( 236, -12, 236, -100, 204, -100, 204, -172, 348, -172, 348, -100, 252, -100, 252, -12 ) ]
 
+[sub_resource type="NavigationPolygon" id=17]
+vertices = PoolVector2Array( 420, -172, 420, -132, 364, -132, 364, -172 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 364, -172, 364, -132, 420, -132, 420, -172 ) ]
+
 [sub_resource type="NavigationPolygon" id=3]
 vertices = PoolVector2Array( -28, 76, -64, 76, -64, 68, -28, 68 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( -28, 68, -64, 68, -64, 76, -28, 76 ) ]
+
+[sub_resource type="NavigationPolygon" id=16]
+vertices = PoolVector2Array( 500, 220, 500, 232, 492, 232, 492, 220 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 492, 220, 492, 232, 500, 232, 500, 220 ) ]
 
 [sub_resource type="NavigationPolygon" id=15]
 vertices = PoolVector2Array( 44, 332, 60, 332, 60, 340, 44, 340 )
@@ -82,9 +93,9 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( 4, 68, 20, 68, 20, 76, 4, 76 ) ]
 
 [sub_resource type="NavigationPolygon" id=8]
-vertices = PoolVector2Array( 500, 204, 500, 232, 492, 232, 492, 204 )
+vertices = PoolVector2Array( 500, 204, 500, 220, 492, 220, 492, 204 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-outlines = [ PoolVector2Array( 492, 204, 492, 232, 500, 232, 500, 204 ) ]
+outlines = [ PoolVector2Array( 492, 204, 492, 220, 500, 220, 500, 204 ) ]
 
 [node name="Level4" type="Node2D"]
 
@@ -132,8 +143,14 @@ navpoly = SubResource( 7 )
 [node name="NavigationPolygonInstance6" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 4 )
 
+[node name="NavigationPolygonInstance8" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 17 )
+
 [node name="NavigationPolygonInstance5" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 3 )
+
+[node name="NavigationPolygonInstance7" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 16 )
 
 [node name="Button" parent="Navigation2D" instance=ExtResource( 7 )]
 position = Vector2( 92, 284 )
@@ -273,6 +290,18 @@ navpoly = SubResource( 2 )
 [node name="SlidingDoorSmall" parent="Navigation2D/ColourComboButton2/NavigationPolygonInstance4" instance=ExtResource( 5 )]
 position = Vector2( 12, 72 )
 rotation = 1.5708
+
+[node name="Enemy" parent="Navigation2D" instance=ExtResource( 11 )]
+position = Vector2( 496, 224 )
+maxDistanceTravel = 120
+
+[node name="Enemy2" parent="Navigation2D" instance=ExtResource( 11 )]
+position = Vector2( 16, 340 )
+maxDistanceTravel = 70
+
+[node name="Enemy3" parent="Navigation2D" instance=ExtResource( 11 )]
+position = Vector2( 224, -104 )
+maxDistanceTravel = 70
 
 [node name="SlidingDoorSmall" parent="." instance=ExtResource( 5 )]
 position = Vector2( 64, -80 )
