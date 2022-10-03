@@ -2,6 +2,7 @@ extends Node2D
 
 
 export(Array, NodePath) var connectedDoors
+export(Array, NodePath) var otherConnections
 export(bool) var oneShot = false
 
 var canInteract = true
@@ -24,7 +25,11 @@ func Press(interactor):
 			for door in connectedDoors:
 				if is_instance_valid(get_node(door)):
 					get_node(door).ToggleOpen()
-		
+			
+			for connection in otherConnections:
+				if is_instance_valid(get_node(connection)):
+					get_node(connection).Interact()
+			
 			if oneShot:
 				canInteract = false
 
