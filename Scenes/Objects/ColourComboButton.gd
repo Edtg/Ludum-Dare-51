@@ -14,9 +14,11 @@ func _ready():
 	$CanvasLayer/ColourCombo.UpdateNote()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func Reset():
+	canInteract = true
+	currentInteractor.canMove = true
+	$CanvasLayer/ColourCombo.visible = false
+	
 
 func Press(interactor):
 	if canInteract:

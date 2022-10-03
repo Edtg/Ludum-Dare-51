@@ -55,6 +55,7 @@ func ResetLevel():
 	
 	get_tree().call_group("enemies", "Reset")
 	get_tree().call_group("doors", "Reset")
+	get_tree().call_group("interactables", "Reset")
 	
 	$Timer.start()
 
