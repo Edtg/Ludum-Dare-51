@@ -29,6 +29,23 @@ func CheckSequence():
 		emit_signal("completed")
 		visible = false
 
+func _process(delta):
+	if Input.is_action_just_pressed("ColourRed"):
+		enteredSequence.append("Red")
+		$Background/SequenceLabel.text += "R"
+		CheckSequence()
+	if Input.is_action_just_pressed("ColourYellow"):
+		enteredSequence.append("Yellow")
+		$Background/SequenceLabel.text += "Y"
+		CheckSequence()
+	if Input.is_action_just_pressed("ColourBlue"):
+		enteredSequence.append("Blue")
+		$Background/SequenceLabel.text += "B"
+		CheckSequence()
+	if Input.is_action_just_pressed("ColourGreen"):
+		enteredSequence.append("Green")
+		$Background/SequenceLabel.text += "G"
+		CheckSequence()
 
 func _on_RedButton_pressed():
 	enteredSequence.append("Red")
