@@ -46,7 +46,7 @@ func _physics_process(delta):
 	
 	if canMove:
 		if velocity != Vector2(0,0):
-			if Input.is_action_pressed("Sprint"):
+			if Input.is_action_pressed("Sprint") and false:
 				moveSpeed = sprintSpeed
 				$AnimationPlayer.play("Sprinting")
 			else:
