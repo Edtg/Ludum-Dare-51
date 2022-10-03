@@ -3,16 +3,19 @@ extends Node2D
 
 var currentLevel
 export(PackedScene) var firstLevel
+export(PackedScene) var menuLevel
+
+export(NodePath) var mainMenu
+export(NodePath) var pauseMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	LoadMainMenu()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+func LoadMainMenu():
+	ChangeLevel(menuLevel)
+	get_node(mainMenu).visible = true
 
 func _on_FadeScreen_FadedIn():
 	$Timer.start()
@@ -33,6 +36,9 @@ func _on_Timer_timeout():
 
 func ChangeLevel(levelScene):
 	$Timer.set_paused(true)
+	
+	get_node(pauseMenu).isPlaying = levelScene != menuLevel
+	
 	if is_instance_valid(currentLevel):
 		currentLevel.queue_free()
 	currentLevel = levelScene.instance()

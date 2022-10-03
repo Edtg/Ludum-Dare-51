@@ -23,3 +23,4 @@ func _on_PlayButton_pressed():
 func _on_QuitButton_pressed():
 	$AudioStreamPlayer.play()
 	get_tree().quit()
+
