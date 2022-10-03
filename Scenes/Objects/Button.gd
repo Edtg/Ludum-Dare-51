@@ -13,7 +13,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func press():
+func Press(interactor):
 	$AudioStreamPlayer2D.play()
 	if $Timer.time_left == 0:
 		$Sprite.frame = 1

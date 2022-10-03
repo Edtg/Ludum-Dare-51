@@ -55,7 +55,7 @@ func _physics_process(delta):
 	
 	
 	if Input.is_action_just_pressed("Interact") and is_instance_valid(interactionObject):
-		interactionObject.press()
+		interactionObject.Press(self)
 
 
 
