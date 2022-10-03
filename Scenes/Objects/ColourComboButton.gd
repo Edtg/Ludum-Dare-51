@@ -6,6 +6,7 @@ var canInteract = true
 
 export(Array, String, "Red", "Yellow", "Blue", "Green") var sequence = ["", "", "", ""]
 export(Array, NodePath) var connectedDoors
+export(bool) var oneShot = true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -28,7 +29,8 @@ func Press(interactor):
 
 
 func _on_ColourCombo_completed():
-	canInteract = false
+	if oneShot:
+		canInteract = false
 	currentInteractor.canMove = true
 	for door in connectedDoors:
 		if is_instance_valid(get_node(door)):

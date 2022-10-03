@@ -10,6 +10,7 @@ var enteredSequence = []
 func Reset():
 	visible = false
 	enteredSequence = []
+	$Background/SequenceLabel.text = ""
 
 func UpdateNote():
 	var noteText = ""
@@ -31,7 +32,7 @@ func CheckSequence():
 	
 	if len(enteredSequence) == len(sequence):
 		emit_signal("completed")
-		visible = false
+		Reset()
 
 func _process(delta):
 	if Input.is_action_just_pressed("ColourRed"):
