@@ -47,11 +47,8 @@ func ResetLevel():
 	var player = get_tree().get_nodes_in_group("players")[0]
 	player.Reset()
 	
-	for enemy in get_tree().get_nodes_in_group("enemies"):
-		enemy.Reset()
-	
-	for door in get_tree().get_nodes_in_group("doors"):
-		door.Reset()
+	get_tree().call_group("enemies", "Reset")
+	get_tree().call_group("doors", "Reset")
 	
 	$Timer.start()
 

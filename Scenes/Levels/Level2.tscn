@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Resources/TileSets/MainTS.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Characters/Enemy.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Resources/TileSets/WireTS.tres" type="TileSet" id=6]
 [ext_resource path="res://Scenes/Objects/LevelEnd.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Resources/TileSets/ObjectTS.tres" type="TileSet" id=8]
+[ext_resource path="res://Scenes/Levels/Level3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sounds/ambient_hum.wav" type="AudioStream" id=10]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 12, 100, 12, 4, 116, 4, 116, 12, 212, -44, 212, -28, 172, -28, 172, -76, 212, -76, 212, -60, 228, -44, 228, -60, 228, -116, 244, -116, 244, -92, 260, -92, 260, -100, 300, -100, 300, -44, 260, -44, 260, -76, 244, -76, 244, 28, 228, 12, 116, 28, 116, 100 )
@@ -203,3 +205,9 @@ z_index = 10
 [node name="LevelEnd" parent="." instance=ExtResource( 7 )]
 position = Vector2( 272, 104 )
 rotation = 1.5708
+nextLevelScene = ExtResource( 9 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -16.0
+autoplay = true
