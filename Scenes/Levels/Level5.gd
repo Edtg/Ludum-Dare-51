@@ -12,12 +12,16 @@ func _ready():
 
 func Interact():
 	if get_node(stabilisers).enabledCount < 0:
-		print("Game Failed")
+		$AnimationPlayer.play("GameFailed")
 	else:
-		print("Game Completed!")
 		$AnimationPlayer.play("GameCompleted")
+		get_tree().paused = true
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "GameCompleted":
+		get_tree().paused = false
 		get_tree().call_group("world", "LoadMainMenu")
+	elif anim_name == "GameFailed":
+		$Player.Die()
+		$AnimationPlayer.play("RESET")

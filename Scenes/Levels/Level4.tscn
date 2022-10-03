@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Resources/TileSets/WireTS.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/TileSets/ObjectTS.tres" type="TileSet" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sounds/ambient_hum.wav" type="AudioStream" id=10]
 [ext_resource path="res://Scenes/Characters/Enemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Levels/Level5.tscn" type="PackedScene" id=12]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 20, 140, 20, 4, 60, 4, 308, 140, 60, -76, 68, -76, 68, 4, 308, 4 )
@@ -119,6 +120,7 @@ tile_data = PoolIntArray( -1441765, 7, 0, -1441762, 5, 0, -1441758, 5, 0, -14417
 
 [node name="LevelEnd" parent="." instance=ExtResource( 4 )]
 position = Vector2( -72, 64 )
+nextLevelScene = ExtResource( 12 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 

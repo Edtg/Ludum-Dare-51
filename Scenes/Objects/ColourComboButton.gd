@@ -18,7 +18,8 @@ func _ready():
 
 func Reset():
 	canInteract = true
-	currentInteractor.canMove = true
+	if is_instance_valid(currentInteractor):
+		currentInteractor.canMove = true
 	$CanvasLayer/ColourCombo.Reset()
 	
 
