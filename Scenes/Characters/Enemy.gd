@@ -40,14 +40,19 @@ func UpdatePosition():
 		var nextPoint = points[pointIndex]
 		pointIndex += 1
 		var distance = currentPosition.distance_to(nextPoint)
+		var direction = currentPosition.direction_to(nextPoint)
 		if distance < maxDistanceTravel - distanceTravelled:
 			currentPosition = nextPoint
 			distanceTravelled += distance
 		else:
-			var direction = currentPosition.direction_to(nextPoint)
 			currentPosition += direction * (maxDistanceTravel - distanceTravelled)
 			distanceTravelled = maxDistanceTravel
 		global_position = currentPosition
+		
+		if abs(direction.y) >= abs(direction.x):
+			rotation_degrees = 0
+		else:
+			rotation_degrees = 90
 
 
 func _on_DeathBox_body_entered(body):
