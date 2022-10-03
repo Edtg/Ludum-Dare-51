@@ -25,3 +25,4 @@ func PlayNextDialogue():
 	$WalkieTalkie/SpeechBubble/SpeechLabel.text = dialogue
 	currentLine += 1
 	$AnimationPlayer.play("Broadcast")
+	$StaticNoise.play()
