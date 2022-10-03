@@ -71,8 +71,13 @@ pitch_scale = 0.8
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 pause_mode = 2
-visible = false
 script = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+margin_top = 560.0
+margin_right = 512.0
+margin_bottom = 784.0
+color = Color( 1, 1, 1, 0.0784314 )
 
 [node name="Label" type="Label" parent="PauseMenu"]
 margin_top = 584.0
