@@ -158,6 +158,7 @@ connectedDoors = [ NodePath("..") ]
 
 [node name="Enemy" parent="Navigation2D" instance=ExtResource( 5 )]
 position = Vector2( 12, 0 )
+maxDistanceTravel = 120
 
 [node name="Enemy2" parent="Navigation2D" instance=ExtResource( 5 )]
 position = Vector2( 480, -48 )
