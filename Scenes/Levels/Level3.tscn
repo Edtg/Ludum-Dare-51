@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Resources/TileSets/WireTS.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/TileSets/ObjectTS.tres" type="TileSet" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/Objects/LevelEnd.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sounds/ambient_hum.wav" type="AudioStream" id=10]
 [ext_resource path="res://Scenes/Objects/ColourComboButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Levels/Level4.tscn" type="PackedScene" id=12]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 416, 4, 416, -4, 476, -4, 476, 4, 476, -56, 484, -56, 484, 220, 476, 220 )
@@ -176,6 +177,7 @@ position = Vector2( 64, 0 )
 [node name="LevelEnd" parent="." instance=ExtResource( 9 )]
 position = Vector2( 176, 296 )
 rotation = -1.5708
+nextLevelScene = ExtResource( 12 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )

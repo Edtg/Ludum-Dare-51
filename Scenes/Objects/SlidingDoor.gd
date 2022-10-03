@@ -2,20 +2,20 @@ extends Node2D
 
 
 var isOpen = false
+export(bool) var startsOpen = false
 export(bool) var functional = true
 onready var navigationPoly = get_parent()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if functional:
-		navigationPoly.enabled = isOpen
-
+	Reset()
 
 func Reset():
-	isOpen = false
+	isOpen = startsOpen
 	if functional:
 		navigationPoly.enabled = isOpen
-	$Sprite.frame = 0
+	$Sprite.frame = 0 if not isOpen else 8
+	$StaticBody2D/CollisionShape2D.disabled = isOpen
 
 func ToggleOpen():
 	if isOpen:

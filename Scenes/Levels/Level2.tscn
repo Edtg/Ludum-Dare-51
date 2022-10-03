@@ -210,3 +210,4 @@ nextLevelScene = ExtResource( 9 )
 stream = ExtResource( 10 )
 volume_db = -16.0
 autoplay = true
+bus = "Ambient"
