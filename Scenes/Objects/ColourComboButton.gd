@@ -17,7 +17,7 @@ func _ready():
 func Reset():
 	canInteract = true
 	currentInteractor.canMove = true
-	$CanvasLayer/ColourCombo.visible = false
+	$CanvasLayer/ColourCombo.Reset()
 	
 
 func Press(interactor):

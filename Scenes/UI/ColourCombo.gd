@@ -7,6 +7,10 @@ var sequence = []
 var enteredSequence = []
 
 
+func Reset():
+	visible = false
+	enteredSequence = []
+
 func UpdateNote():
 	var noteText = ""
 	for colour in sequence:
