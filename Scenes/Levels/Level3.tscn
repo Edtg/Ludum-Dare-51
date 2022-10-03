@@ -192,4 +192,4 @@ bus = "Ambient"
 
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource( 13 )]
 visible = false
-dialogueLines = [ "Hey! Are you at the control room yet?", "No?... There's one behind you??", "Well, you better get moving!" ]
+dialogueLines = [ "Hey! Are you at the control room yet?", "No?... And there's one of those creatures behind you??", "Well, you better get moving!!!" ]

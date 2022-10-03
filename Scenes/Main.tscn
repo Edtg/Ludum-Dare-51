@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/FadeScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sounds/ButtonPress.wav" type="AudioStream" id=3]
-[ext_resource path="res://Sounds/ambient_hum.wav" type="AudioStream" id=4]
 [ext_resource path="res://Scenes/Levels/Level1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/World.gd" type="Script" id=6]
 [ext_resource path="res://Sounds/Electricity.wav" type="AudioStream" id=7]
@@ -142,9 +141,6 @@ margin_right = 512.0
 margin_bottom = 752.0
 theme = ExtResource( 15 )
 text = "Quit to menu"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
 
 [connection signal="timeout" from="World/Timer" to="World" method="_on_Timer_timeout"]
 [connection signal="FadedIn" from="World/CanvasLayer/FadeScreen" to="World" method="_on_FadeScreen_FadedIn"]
