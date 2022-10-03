@@ -3,17 +3,15 @@ extends Control
 
 signal completed
 
-export(Array, String, "Red", "Yellow", "Blue", "Green") var sequence = []
+var sequence = []
 var enteredSequence = []
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func UpdateNote():
 	var noteText = ""
 	for colour in sequence:
 		noteText += colour + "\n"
 	$Background/Note/NoteText.text = noteText
-
 
 func CheckSequence():
 	if len(enteredSequence) > len(sequence):

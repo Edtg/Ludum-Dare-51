@@ -22,9 +22,10 @@ shape = SubResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColourCombo" parent="CanvasLayer" instance=ExtResource( 3 )]
-margin_left = 773.0
-margin_top = 383.0
-margin_right = 773.0
-margin_bottom = 383.0
+visible = false
+margin_left = 734.0
+margin_top = 300.0
+margin_right = -674.0
+margin_bottom = -268.0
 
 [connection signal="completed" from="CanvasLayer/ColourCombo" to="." method="_on_ColourCombo_completed"]

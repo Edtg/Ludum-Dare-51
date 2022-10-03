@@ -147,13 +147,11 @@ navpoly = SubResource( 5 )
 position = Vector2( 408, 0 )
 rotation = 1.5708
 
-[node name="Button" parent="Navigation2D/NavigationPolygonInstance4/SlidingDoorSmall" instance=ExtResource( 8 )]
-position = Vector2( -68, 44 )
+[node name="ColourComboButton" parent="Navigation2D/NavigationPolygonInstance4/SlidingDoorSmall" instance=ExtResource( 11 )]
+position = Vector2( -67.9998, 44.0002 )
 rotation = -1.5708
+sequence = [ "Red", "Green", "Yellow", "Blue" ]
 connectedDoors = [ NodePath("..") ]
-
-[node name="ColourComboButton" parent="Navigation2D/NavigationPolygonInstance4/SlidingDoorSmall/Button" instance=ExtResource( 11 )]
-position = Vector2( -8, 28 )
 
 [node name="Enemy" parent="Navigation2D" instance=ExtResource( 5 )]
 position = Vector2( 12, 0 )

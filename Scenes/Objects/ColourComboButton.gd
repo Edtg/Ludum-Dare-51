@@ -4,12 +4,14 @@ extends Node2D
 var currentInteractor
 var canInteract = true
 
+export(Array, String, "Red", "Yellow", "Blue", "Green") var sequence = ["", "", "", ""]
 export(Array, NodePath) var connectedDoors
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$CanvasLayer/ColourCombo.sequence = sequence
+	$CanvasLayer/ColourCombo.UpdateNote()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
