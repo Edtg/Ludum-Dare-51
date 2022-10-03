@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Resources/TileSets/WireTS.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/TileSets/ObjectTS.tres" type="TileSet" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sounds/ambient_hum.wav" type="AudioStream" id=10]
 [ext_resource path="res://Scenes/Objects/ColourComboButton.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Levels/Level4.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/UI/Dialogue.tscn" type="PackedScene" id=13]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 416, 4, 416, -4, 476, -4, 476, 4, 476, -56, 484, -56, 484, 220, 476, 220 )
@@ -184,3 +185,8 @@ stream = ExtResource( 10 )
 volume_db = -16.0
 autoplay = true
 bus = "Ambient"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource( 13 )]
+dialogueLines = [ "Hey! Are you at the control room yet?", "No?... There's one behind you??", "Well, you better get moving!" ]

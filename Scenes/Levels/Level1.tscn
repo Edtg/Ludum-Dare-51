@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Resources/TileSets/MainTS.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Characters/Enemy.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Sounds/ambient_hum.wav" type="AudioStream" id=8]
 [ext_resource path="res://Resources/TileSets/WireTS.tres" type="TileSet" id=9]
 [ext_resource path="res://Resources/TileSets/ObjectTS.tres" type="TileSet" id=10]
+[ext_resource path="res://Scenes/UI/Dialogue.tscn" type="PackedScene" id=11]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 308, 12, 308, 172, 260, 172, 260, 100, 12, 12, 76, 100, 12, 172, 76, 172 )
@@ -111,10 +112,14 @@ nextLevelScene = ExtResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 22, 20 )
-z_index = 10
 
 [node name="AmbientSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -16.0
 autoplay = true
 bus = "Ambient"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource( 11 )]
+dialogueLines = [ "Hello?...", "If you can hear me, we need to stabilise the reactor.", "Get to the control room and I'll guide you through the process.", "If a door is in your way, don't try to break it down, all the doors here are really strong. Use the button connected to it instead.", "Some of the more secure doors have a colour combination to open them.", "Luckily someone wrote down all the combinations and stuck them to the controls, so you just need to enter it in.", "And be careful of those creatures. They don't seem to move when they are lit up. But...", "...Since the power is unstable, the lights are going off every 10 seconds.", "If you get too close, they WILL chase you.", "Good luck!" ]
