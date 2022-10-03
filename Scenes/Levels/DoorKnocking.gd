@@ -1,9 +1,7 @@
 extends AudioStreamPlayer2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export(bool) var isPaused = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,4 +16,5 @@ func _ready():
 
 func _on_Timer_timeout():
 	$Timer.wait_time = rand_range(0.5, 2)
-	play()
+	if not isPaused:
+		play()
