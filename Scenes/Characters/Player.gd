@@ -29,19 +29,19 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("MoveUp"):
 		velocity.y -= 1
-		$Sprite.flip_v = false
+		$CollisionShape2D.rotation_degrees = 0
 		$Sprite.rotation_degrees = 0
 	if Input.is_action_pressed("MoveDown"):
 		velocity.y += 1
-		$Sprite.flip_v = true
-		$Sprite.rotation_degrees = 0
+		$CollisionShape2D.rotation_degrees = 0
+		$Sprite.rotation_degrees = 180
 	if Input.is_action_pressed("MoveLeft"):
 		velocity.x -= 1
-		$Sprite.flip_v = true
-		$Sprite.rotation_degrees = 90
+		$CollisionShape2D.rotation_degrees = 90
+		$Sprite.rotation_degrees = 270
 	if Input.is_action_pressed("MoveRight"):
 		velocity.x += 1
-		$Sprite.flip_v = false
+		$CollisionShape2D.rotation_degrees = 90
 		$Sprite.rotation_degrees = 90
 	
 	if canMove:
