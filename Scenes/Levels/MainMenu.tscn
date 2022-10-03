@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Resources/TileSets/MainTS.tres" type="TileSet" id=1]
 [ext_resource path="res://Resources/TileSets/WireTS.tres" type="TileSet" id=2]
 [ext_resource path="res://Resources/TileSets/ObjectTS.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/Objects/SlidingDoorSmall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Scientist.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Enemy-Sheet.png" type="Texture" id=6]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -43,3 +45,22 @@ functional = false
 position = Vector2( 132, 32 )
 rotation = 1.5708
 functional = false
+
+[node name="ScientistDummy1" type="Sprite" parent="."]
+position = Vector2( 44, 20 )
+texture = ExtResource( 5 )
+
+[node name="ScientistDummy2" type="Sprite" parent="."]
+position = Vector2( 92, 20 )
+texture = ExtResource( 5 )
+
+[node name="ScientistDummy3" type="Sprite" parent="."]
+position = Vector2( 24, 92 )
+rotation = 3.14159
+texture = ExtResource( 5 )
+
+[node name="EnemyDummy" type="Sprite" parent="."]
+position = Vector2( 160, 32 )
+rotation = 1.5708
+texture = ExtResource( 6 )
+hframes = 4
