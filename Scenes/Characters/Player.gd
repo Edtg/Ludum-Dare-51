@@ -53,7 +53,7 @@ func _physics_process(delta):
 				$AnimationPlayer.play("Walking")
 		else:
 			$AnimationPlayer.play("Idle")
-		move_and_collide(velocity * moveSpeed)
+		move_and_collide(velocity.normalized() * moveSpeed)
 	else:
 		$AnimationPlayer.play("Idle")
 	
