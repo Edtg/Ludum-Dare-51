@@ -703,7 +703,7 @@ tracks/17/keys = {
 script = ExtResource( 10 )
 stabilisers = NodePath("Stabiliser")
 
-[node name="Stabiliser" type="Node2D" parent="."]
+[node name="Stabiliser" type="Node2D" parent="." groups=["interactables"]]
 script = ExtResource( 14 )
 
 [node name="Button" parent="Stabiliser" instance=ExtResource( 8 )]
